@@ -24,7 +24,7 @@ export default function Navbar() {
         zIndex: 999,
         boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
       }}>
-        <div style={{
+        <div className="nav-inner" style={{
           maxWidth: 1200,
           margin: '0 auto',
           padding: '0 24px',
@@ -34,7 +34,7 @@ export default function Navbar() {
           height: '72px',
         }}>
           {/* Logo */}
-          <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <a href="#" className="nav-logo" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <div style={{
               width: 50,
               height: 50,
@@ -51,10 +51,10 @@ export default function Navbar() {
               border: '2px solid rgba(255,255,255,0.2)',
             }}>PP</div>
             <div>
-              <div style={{ fontFamily: 'Oswald, sans-serif', fontSize: 22, fontWeight: 700, color: 'white', lineHeight: 1.1, letterSpacing: '0.03em' }}>
+              <div className="nav-brand-primary" style={{ fontFamily: 'Oswald, sans-serif', fontSize: 22, fontWeight: 700, color: 'white', lineHeight: 1.1, letterSpacing: '0.03em' }}>
                 PRIMOS
               </div>
-              <div style={{ fontFamily: 'Oswald, sans-serif', fontSize: 13, fontWeight: 400, color: '#C8202A', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+              <div className="nav-brand-secondary" style={{ fontFamily: 'Oswald, sans-serif', fontSize: 13, fontWeight: 400, color: '#C8202A', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
                 PLUMBING
               </div>
             </div>
@@ -91,8 +91,8 @@ export default function Navbar() {
           </div>
 
           {/* CTA Group */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <a href="#contact" style={{
+          <div className="nav-cta-group" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <a href="#contact" className="nav-phone-cta" style={{
               display: 'flex',
               alignItems: 'center',
               gap: 8,
@@ -109,9 +109,9 @@ export default function Navbar() {
               onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'}
             >
               <span style={{ fontSize: 18 }}>📞</span>
-              <span style={{ display: 'none' }} className="hide-sm">(323) 555-7270</span>
+              <span className="nav-phone-text">(323) 555-7270</span>
             </a>
-            <a href="#contact" style={{
+            <a href="#contact" className="nav-schedule-cta" style={{
               background: 'linear-gradient(135deg, #C8202A, #A0171F)',
               color: 'white',
               padding: '10px 18px',
@@ -192,13 +192,25 @@ export default function Navbar() {
       </nav>
 
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
           .desktop-nav { display: none !important; }
           .hamburger { display: block !important; }
           .mobile-nav { display: block !important; }
         }
-        @media (min-width: 769px) {
+        @media (min-width: 901px) {
           .mobile-nav { display: none !important; }
+        }
+        @media (max-width: 768px) {
+          .nav-inner {
+            padding: 0 12px !important;
+            height: 64px !important;
+          }
+          .nav-brand-primary { font-size: 18px !important; }
+          .nav-brand-secondary { font-size: 10px !important; letter-spacing: 0.12em !important; }
+          .nav-phone-cta { padding: 8px 10px !important; }
+          .nav-phone-text { display: none !important; }
+          .nav-schedule-cta { display: none !important; }
+          .mobile-nav { padding: 12px 12px 20px !important; }
         }
       `}</style>
     </>

@@ -45,7 +45,7 @@ export default function ServiceAreasSection() {
         </div>
 
         {/* Areas Grid */}
-        <div style={{
+        <div className="areas-chip-wrap" style={{
           display: 'flex',
           flexWrap: 'wrap',
           gap: 12,
@@ -87,7 +87,7 @@ export default function ServiceAreasSection() {
         </div>
 
         {/* Not in list CTA */}
-        <div style={{
+        <div className="areas-cta" style={{
           background: 'linear-gradient(135deg, #0D1F3C, #1A3260)',
           borderRadius: 20,
           padding: 'clamp(30px, 5vw, 48px)',
@@ -98,7 +98,7 @@ export default function ServiceAreasSection() {
           justifyContent: 'space-between',
           gap: 24,
         }}>
-          <div style={{ textAlign: 'left', flex: 1, minWidth: 250 }}>
+          <div className="areas-cta-text" style={{ textAlign: 'left', flex: 1, minWidth: 250 }}>
             <h3 style={{ fontFamily: 'Oswald, sans-serif', fontSize: 26, color: 'white', textTransform: 'uppercase', marginBottom: 8 }}>
               Don&apos;t See Your City?
             </h3>
@@ -106,8 +106,8 @@ export default function ServiceAreasSection() {
               Call us anyway — we may still be able to serve your area. We&apos;re always expanding our coverage.
             </p>
           </div>
-          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-            <a href="tel:3235557270" style={{
+          <div className="areas-cta-buttons" style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+            <a href="tel:3235557270" className="areas-cta-btn" style={{
               background: '#C8202A',
               color: 'white',
               padding: '14px 28px',
@@ -118,7 +118,7 @@ export default function ServiceAreasSection() {
             }}>
               📞 (323) 555-7270
             </a>
-            <a href="#contact" style={{
+            <a href="#contact" className="areas-cta-btn" style={{
               background: 'rgba(255,255,255,0.1)',
               border: '2px solid rgba(255,255,255,0.3)',
               color: 'white',
@@ -133,6 +133,17 @@ export default function ServiceAreasSection() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .areas-chip-wrap { gap: 10px !important; }
+          .areas-chip-wrap a { font-size: 13px !important; padding: 8px 14px !important; }
+          .areas-cta { justify-content: center !important; }
+          .areas-cta-text { text-align: center !important; min-width: 0 !important; }
+          .areas-cta-buttons { width: 100%; }
+          .areas-cta-btn { width: 100%; text-align: center; }
+        }
+      `}</style>
     </section>
   );
 }
