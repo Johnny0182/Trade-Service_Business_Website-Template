@@ -42,7 +42,7 @@ export default function AnnouncementBar() {
         }
       `}</style>
       🚨 LIMITED TIME: GET <span style={{ fontSize: '18px', color: '#FFD700' }}>$75 OFF</span> YOUR FIRST SERVICE CALL — USE CODE: <strong style={{ color: '#FFD700' }}>PRIMO75</strong>&nbsp;&nbsp;|&nbsp;&nbsp;
-      24/7 Emergency Service Available&nbsp;&nbsp;📞 <a href="#contact" style={{ color: '#FFD700', textDecoration: 'underline' }}>(323) 555-7270</a>
+      24/7 Emergency Service Available&nbsp;&nbsp;📞 <a href="#contact" style={{ color: '#FFD700', textDecoration: 'underline' }}>(323) 000-0000</a>
     </div>
   );
 }

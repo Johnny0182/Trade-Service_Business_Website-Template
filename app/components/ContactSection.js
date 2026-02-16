@@ -98,7 +98,7 @@ export default function ContactSection() {
                 </h3>
                 <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>
                   A Primos Plumbing specialist will call you back within 15 minutes. 
-                  For urgent issues, call us directly at <strong style={{ color: '#FFD700' }}>(323) 555-7270</strong>.
+                  For urgent issues, call us directly at <strong style={{ color: '#FFD700' }}>(323) 000-0000</strong>.
                 </p>
               </div>
             ) : (
@@ -217,7 +217,7 @@ export default function ContactSection() {
                 display: 'block',
                 marginBottom: 12,
               }}>
-                (323) 555-7270
+                (323) 000-0000
               </a>
               <div style={{
                 background: 'rgba(255,255,255,0.15)',

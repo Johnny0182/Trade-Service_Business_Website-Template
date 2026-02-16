@@ -113,7 +113,7 @@ export default function Navbar() {
               onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'}
             >
               <span style={{ fontSize: 18 }}>📞</span>
-              <span className="nav-phone-text">(323) 555-7270</span>
+              <span className="nav-phone-text">(323) 000-0000</span>
             </a>
             <a href="#contact" className="nav-schedule-cta" style={{
               background: 'linear-gradient(135deg, #C8202A, #A0171F)',
@@ -191,7 +191,7 @@ export default function Navbar() {
                 fontSize: 15,
               }}
             >
-              📞 Call (323) 555-7270
+              📞 Call (323) 000-0000
             </a>
           </div>
         )}

@@ -118,7 +118,7 @@ export default function ServiceAreasSection() {
               fontSize: 15,
               whiteSpace: 'nowrap',
             }}>
-              📞 (323) 555-7270
+              📞 (323) 000-0000
             </a>
             <a href="#contact" className="areas-cta-btn" style={{
               background: 'rgba(255,255,255,0.1)',

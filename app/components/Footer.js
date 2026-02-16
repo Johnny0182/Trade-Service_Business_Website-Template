@@ -98,7 +98,7 @@ export default function Footer() {
             {/* Contact quick */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               {[
-                { icon: '📞', text: '(323) 555-7270' },
+                { icon: '📞', text: '(323) 000-0000' },
                 { icon: '✉️', text: 'info@primosplumbing.com' },
                 { icon: '📍', text: 'South Gate, CA 90280' },
                 { icon: '🕐', text: '24/7 Emergency Available' },

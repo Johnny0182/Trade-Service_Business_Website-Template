@@ -178,7 +178,7 @@ export default function Hero() {
                 e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)';
               }}
             >
-              📞 (323) 555-7270
+              📞 (323) 000-0000
             </a>
           </div>
 
