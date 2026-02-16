@@ -58,9 +58,10 @@ export default function WhyChooseUs() {
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
             gap: 24,
+            alignItems: 'stretch',
           }}>
             {steps.map((step, i) => (
-              <div key={i} style={{ textAlign: 'center', position: 'relative' }}>
+              <div key={i} style={{ textAlign: 'center', position: 'relative', height: '100%' }}>
                 {/* Connector line (desktop) */}
                 {i < steps.length - 1 && (
                   <div style={{
@@ -74,9 +75,10 @@ export default function WhyChooseUs() {
                   }} />
                 )}
                 <div style={{
-                  display: 'inline-flex',
+                  display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
+                  justifyContent: 'flex-start',
                   background: 'rgba(255,255,255,0.05)',
                   border: '1px solid rgba(255,255,255,0.1)',
                   borderRadius: 20,
@@ -84,6 +86,8 @@ export default function WhyChooseUs() {
                   transition: 'background 0.3s, border-color 0.3s',
                   cursor: 'default',
                   width: '100%',
+                  minHeight: 'clamp(260px, 30vw, 300px)',
+                  height: '100%',
                 }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.background = 'rgba(200,32,42,0.15)';
