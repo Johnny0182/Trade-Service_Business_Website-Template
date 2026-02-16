@@ -16,6 +16,7 @@ export default function AnnouncementBar() {
       position: 'relative',
       zIndex: 100,
       overflowWrap: 'anywhere',
+      whiteSpace: 'nowrap',
     }}>
       <style>{`
         @keyframes shimmer {
@@ -30,6 +31,7 @@ export default function AnnouncementBar() {
             padding: 10px 12px !important;
             font-size: 12px !important;
             letter-spacing: 0.02em !important;
+            white-space: normal !important;
           }
           .announcement-bar span {
             font-size: 15px !important;

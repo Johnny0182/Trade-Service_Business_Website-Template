@@ -6,6 +6,7 @@ export default function ContactSection() {
     name: '', phone: '', email: '', service: '', message: '', zip: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const keepVisualOnly = (e) => e.preventDefault();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -206,7 +207,7 @@ export default function ContactSection() {
               <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: 13, letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>
                 Call Us Anytime — 24/7
               </div>
-              <a href="tel:3235557270" style={{
+              <a href="#contact" onClick={keepVisualOnly} style={{
                 fontFamily: 'Oswald, sans-serif',
                 fontSize: 'clamp(28px, 5vw, 40px)',
                 fontWeight: 700,

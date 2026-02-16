@@ -9,6 +9,8 @@ const areas = [
 ];
 
 export default function ServiceAreasSection() {
+  const keepVisualOnly = (e) => e.preventDefault();
+
   return (
     <section id="areas" style={{ background: '#F4F7FB', padding: 'clamp(60px, 8vw, 100px) 24px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
@@ -107,7 +109,7 @@ export default function ServiceAreasSection() {
             </p>
           </div>
           <div className="areas-cta-buttons" style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-            <a href="tel:3235557270" className="areas-cta-btn" style={{
+            <a href="#contact" onClick={keepVisualOnly} className="areas-cta-btn" style={{
               background: '#C8202A',
               color: 'white',
               padding: '14px 28px',

@@ -1,6 +1,8 @@
 'use client';
 
 export default function Hero() {
+  const keepVisualOnly = (e) => e.preventDefault();
+
   return (
     <section
       id="home"
@@ -140,6 +142,7 @@ export default function Hero() {
               transition: 'transform 0.2s, box-shadow 0.2s',
               animation: 'pulse 2.5s 2s ease infinite',
             }}
+              onClick={keepVisualOnly}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-3px)';
                 e.currentTarget.style.boxShadow = '0 12px 40px rgba(200,32,42,0.65)';
@@ -151,7 +154,7 @@ export default function Hero() {
             >
               📅 Schedule Free Estimate
             </a>
-            <a href="tel:3235557270" className="hero-secondary-cta" style={{
+            <a href="#contact" className="hero-secondary-cta" style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: 10,
@@ -165,6 +168,7 @@ export default function Hero() {
               backdropFilter: 'blur(8px)',
               transition: 'all 0.2s',
             }}
+              onClick={keepVisualOnly}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
                 e.currentTarget.style.borderColor = 'white';

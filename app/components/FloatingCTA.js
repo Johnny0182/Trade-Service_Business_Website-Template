@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 export default function FloatingCTA() {
   const [visible, setVisible] = useState(false);
+  const keepVisualOnly = (e) => e.preventDefault();
 
   useEffect(() => {
     const handleScroll = () => setVisible(window.scrollY > 300);
@@ -25,8 +26,9 @@ export default function FloatingCTA() {
       {/* Call Button */}
       <a
         className="floating-cta-button"
-        href="tel:3235557270"
+        href="#contact"
         title="Call Primos Plumbing"
+        onClick={keepVisualOnly}
         style={{
           width: 58,
           height: 58,
@@ -57,6 +59,7 @@ export default function FloatingCTA() {
         className="floating-cta-button"
         href="#contact"
         title="Schedule Service"
+        onClick={keepVisualOnly}
         style={{
           width: 58,
           height: 58,

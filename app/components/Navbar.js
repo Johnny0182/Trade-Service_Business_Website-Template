@@ -14,6 +14,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const keepVisualOnly = (e) => e.preventDefault();
 
   return (
     <>
@@ -25,9 +26,10 @@ export default function Navbar() {
         boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
       }}>
         <div className="nav-inner" style={{
-          maxWidth: 1200,
+          maxWidth: 1720,
+          width: '100%',
           margin: '0 auto',
-          padding: '0 24px',
+          padding: '0 clamp(14px, 2vw, 28px)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -61,16 +63,16 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Nav */}
-          <div className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+          <div className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: 4, flex: 1, minWidth: 0, justifyContent: 'center' }}>
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 style={{
                   color: 'rgba(255,255,255,0.85)',
-                  fontSize: 13,
+                  fontSize: 12,
                   fontWeight: 600,
-                  padding: '6px 10px',
+                  padding: '6px clamp(6px, 0.6vw, 10px)',
                   borderRadius: 6,
                   transition: 'all 0.2s',
                   whiteSpace: 'nowrap',
@@ -91,7 +93,7 @@ export default function Navbar() {
           </div>
 
           {/* CTA Group */}
-          <div className="nav-cta-group" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <div className="nav-cta-group" style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>
             <a href="#contact" className="nav-phone-cta" style={{
               display: 'flex',
               alignItems: 'center',
@@ -104,7 +106,9 @@ export default function Navbar() {
               fontWeight: 700,
               fontSize: 14,
               transition: 'all 0.2s',
+              whiteSpace: 'nowrap',
             }}
+              onClick={keepVisualOnly}
               onMouseEnter={(e) => e.currentTarget.style.borderColor = '#fff'}
               onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'}
             >
@@ -124,6 +128,7 @@ export default function Navbar() {
               boxShadow: '0 4px 12px rgba(200,32,42,0.4)',
               transition: 'transform 0.2s',
             }}
+              onClick={keepVisualOnly}
               onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
             >
@@ -173,6 +178,7 @@ export default function Navbar() {
             ))}
             <a
               href="#contact"
+              onClick={keepVisualOnly}
               style={{
                 display: 'block',
                 marginTop: 16,
@@ -192,6 +198,7 @@ export default function Navbar() {
       </nav>
 
       <style>{`
+        .nav-logo { flex-shrink: 0; }
         @media (max-width: 900px) {
           .desktop-nav { display: none !important; }
           .hamburger { display: block !important; }
@@ -199,6 +206,13 @@ export default function Navbar() {
         }
         @media (min-width: 901px) {
           .mobile-nav { display: none !important; }
+        }
+        @media (max-width: 1450px) {
+          .desktop-nav a { font-size: 11.5px !important; padding-left: 6px !important; padding-right: 6px !important; }
+        }
+        @media (max-width: 1260px) {
+          .nav-phone-text { display: none !important; }
+          .nav-phone-cta { padding: 8px 10px !important; }
         }
         @media (max-width: 768px) {
           .nav-inner {
