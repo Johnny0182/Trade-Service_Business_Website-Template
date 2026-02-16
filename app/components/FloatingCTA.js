@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 export default function FloatingCTA() {
   const [visible, setVisible] = useState(false);
+  const keepVisualOnly = (e) => e.preventDefault();
 
   useEffect(() => {
     const handleScroll = () => setVisible(window.scrollY > 300);
@@ -13,7 +14,7 @@ export default function FloatingCTA() {
   if (!visible) return null;
 
   return (
-    <div style={{
+    <div className="floating-cta-wrap" style={{
       position: 'fixed',
       bottom: 24,
       right: 24,
@@ -24,8 +25,10 @@ export default function FloatingCTA() {
     }}>
       {/* Call Button */}
       <a
-        href="tel:3235557270"
+        className="floating-cta-button"
+        href="#contact"
         title="Call Primos Plumbing"
+        onClick={keepVisualOnly}
         style={{
           width: 58,
           height: 58,
@@ -53,8 +56,10 @@ export default function FloatingCTA() {
 
       {/* Schedule Button */}
       <a
+        className="floating-cta-button"
         href="#contact"
         title="Schedule Service"
+        onClick={keepVisualOnly}
         style={{
           width: 58,
           height: 58,
@@ -80,6 +85,10 @@ export default function FloatingCTA() {
           94% { transform: scale(1.1) rotate(5deg); }
           96% { transform: scale(1.1) rotate(-3deg); }
           98% { transform: scale(1.1) rotate(3deg); }
+        }
+        @media (max-width: 768px) {
+          .floating-cta-wrap { right: 12px !important; bottom: 12px !important; gap: 8px !important; }
+          .floating-cta-button { width: 52px !important; height: 52px !important; font-size: 22px !important; }
         }
       `}</style>
     </div>

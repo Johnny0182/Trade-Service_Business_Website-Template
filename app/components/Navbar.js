@@ -14,6 +14,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const keepVisualOnly = (e) => e.preventDefault();
 
   return (
     <>
@@ -24,17 +25,18 @@ export default function Navbar() {
         zIndex: 999,
         boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
       }}>
-        <div style={{
-          maxWidth: 1200,
+        <div className="nav-inner" style={{
+          maxWidth: 1720,
+          width: '100%',
           margin: '0 auto',
-          padding: '0 24px',
+          padding: '0 clamp(14px, 2vw, 28px)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           height: '72px',
         }}>
           {/* Logo */}
-          <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <a href="#" className="nav-logo" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <div style={{
               width: 50,
               height: 50,
@@ -51,26 +53,26 @@ export default function Navbar() {
               border: '2px solid rgba(255,255,255,0.2)',
             }}>PP</div>
             <div>
-              <div style={{ fontFamily: 'Oswald, sans-serif', fontSize: 22, fontWeight: 700, color: 'white', lineHeight: 1.1, letterSpacing: '0.03em' }}>
+              <div className="nav-brand-primary" style={{ fontFamily: 'Oswald, sans-serif', fontSize: 22, fontWeight: 700, color: 'white', lineHeight: 1.1, letterSpacing: '0.03em' }}>
                 PRIMOS
               </div>
-              <div style={{ fontFamily: 'Oswald, sans-serif', fontSize: 13, fontWeight: 400, color: '#C8202A', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+              <div className="nav-brand-secondary" style={{ fontFamily: 'Oswald, sans-serif', fontSize: 13, fontWeight: 400, color: '#C8202A', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
                 PLUMBING
               </div>
             </div>
           </a>
 
           {/* Desktop Nav */}
-          <div className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+          <div className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: 4, flex: 1, minWidth: 0, justifyContent: 'center' }}>
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 style={{
                   color: 'rgba(255,255,255,0.85)',
-                  fontSize: 13,
+                  fontSize: 12,
                   fontWeight: 600,
-                  padding: '6px 10px',
+                  padding: '6px clamp(6px, 0.6vw, 10px)',
                   borderRadius: 6,
                   transition: 'all 0.2s',
                   whiteSpace: 'nowrap',
@@ -91,8 +93,8 @@ export default function Navbar() {
           </div>
 
           {/* CTA Group */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <a href="#contact" style={{
+          <div className="nav-cta-group" style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>
+            <a href="#contact" className="nav-phone-cta" style={{
               display: 'flex',
               alignItems: 'center',
               gap: 8,
@@ -104,14 +106,16 @@ export default function Navbar() {
               fontWeight: 700,
               fontSize: 14,
               transition: 'all 0.2s',
+              whiteSpace: 'nowrap',
             }}
+              onClick={keepVisualOnly}
               onMouseEnter={(e) => e.currentTarget.style.borderColor = '#fff'}
               onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'}
             >
               <span style={{ fontSize: 18 }}>📞</span>
-              <span style={{ display: 'none' }} className="hide-sm">(323) 555-7270</span>
+              <span className="nav-phone-text">(323) 555-7270</span>
             </a>
-            <a href="#contact" style={{
+            <a href="#contact" className="nav-schedule-cta" style={{
               background: 'linear-gradient(135deg, #C8202A, #A0171F)',
               color: 'white',
               padding: '10px 18px',
@@ -124,6 +128,7 @@ export default function Navbar() {
               boxShadow: '0 4px 12px rgba(200,32,42,0.4)',
               transition: 'transform 0.2s',
             }}
+              onClick={keepVisualOnly}
               onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
             >
@@ -173,6 +178,7 @@ export default function Navbar() {
             ))}
             <a
               href="#contact"
+              onClick={keepVisualOnly}
               style={{
                 display: 'block',
                 marginTop: 16,
@@ -192,13 +198,33 @@ export default function Navbar() {
       </nav>
 
       <style>{`
-        @media (max-width: 768px) {
+        .nav-logo { flex-shrink: 0; }
+        @media (max-width: 900px) {
           .desktop-nav { display: none !important; }
           .hamburger { display: block !important; }
           .mobile-nav { display: block !important; }
         }
-        @media (min-width: 769px) {
+        @media (min-width: 901px) {
           .mobile-nav { display: none !important; }
+        }
+        @media (max-width: 1450px) {
+          .desktop-nav a { font-size: 11.5px !important; padding-left: 6px !important; padding-right: 6px !important; }
+        }
+        @media (max-width: 1260px) {
+          .nav-phone-text { display: none !important; }
+          .nav-phone-cta { padding: 8px 10px !important; }
+        }
+        @media (max-width: 768px) {
+          .nav-inner {
+            padding: 0 12px !important;
+            height: 64px !important;
+          }
+          .nav-brand-primary { font-size: 18px !important; }
+          .nav-brand-secondary { font-size: 10px !important; letter-spacing: 0.12em !important; }
+          .nav-phone-cta { padding: 8px 10px !important; }
+          .nav-phone-text { display: none !important; }
+          .nav-schedule-cta { display: none !important; }
+          .mobile-nav { padding: 12px 12px 20px !important; }
         }
       `}</style>
     </>

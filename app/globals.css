@@ -126,11 +126,33 @@ button {
   color: var(--red);
 }
 
+/* Select dropdown styling - FIXED: Now outside media query */
+select.service-select {
+  color: white;
+}
+
+select.service-select option {
+  color: black !important;
+  background-color: white !important;
+}
+
 /* Mobile hamburger */
 @media (max-width: 768px) {
   .desktop-nav { display: none !important; }
 }
+
 @media (min-width: 769px) {
   .mobile-nav { display: none !important; }
   .hamburger { display: none !important; }
+}
+
+@media (max-width: 768px) {
+  .section-container {
+    padding: 0 16px;
+  }
+
+  h1, h2, h3 {
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
 }

@@ -6,6 +6,7 @@ export default function ContactSection() {
     name: '', phone: '', email: '', service: '', message: '', zip: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const keepVisualOnly = (e) => e.preventDefault();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -71,7 +72,7 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div style={{
+        <div className="contact-main-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: 40,
@@ -105,7 +106,7 @@ export default function ContactSection() {
                 <h3 style={{ fontFamily: 'Oswald, sans-serif', fontSize: 22, color: 'white', textTransform: 'uppercase', marginBottom: 24, letterSpacing: '0.03em' }}>
                   Request a FREE Estimate
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 14 }}>
+                <div className="contact-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 14 }}>
                   {[
                     { name: 'name', placeholder: 'Full Name *', type: 'text' },
                     { name: 'phone', placeholder: 'Phone Number *', type: 'tel' },
@@ -122,7 +123,7 @@ export default function ContactSection() {
                     />
                   ))}
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 14 }}>
+                <div className="contact-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 14 }}>
                   <input
                     type="email"
                     name="email"
@@ -145,7 +146,8 @@ export default function ContactSection() {
                   value={formData.service}
                   onChange={handleChange}
                   required
-                  style={{ ...inputStyle, marginBottom: 14 }}
+                  className="service-select"
+                  style={{ ...inputStyle, marginBottom: 14, }}
                 >
                   <option value="">Select Service Needed *</option>
                   <option>Drain Cleaning / Unclogging</option>
@@ -193,9 +195,9 @@ export default function ContactSection() {
           </div>
 
           {/* Right Side Info */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+          <div className="contact-side-column" style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
             {/* Call Now Card */}
-            <div style={{
+            <div className="contact-call-card" style={{
               background: 'linear-gradient(135deg, #C8202A, #8B0000)',
               borderRadius: 20,
               padding: '32px',
@@ -206,7 +208,7 @@ export default function ContactSection() {
               <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: 13, letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>
                 Call Us Anytime — 24/7
               </div>
-              <a href="tel:3235557270" style={{
+              <a href="#contact" onClick={keepVisualOnly} style={{
                 fontFamily: 'Oswald, sans-serif',
                 fontSize: 'clamp(28px, 5vw, 40px)',
                 fontWeight: 700,
@@ -262,6 +264,12 @@ export default function ContactSection() {
         @keyframes floatPhone {
           0%, 100% { transform: translateY(0) rotate(-5deg); }
           50% { transform: translateY(-10px) rotate(-5deg); }
+        }
+        @media (max-width: 768px) {
+          .contact-main-grid { gap: 24px !important; }
+          .contact-form-grid { grid-template-columns: 1fr !important; }
+          .contact-call-card { padding: 24px 18px !important; }
+          .contact-side-column > div { padding-left: 16px !important; padding-right: 16px !important; }
         }
       `}</style>
     </section>
