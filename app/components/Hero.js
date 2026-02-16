@@ -40,10 +40,10 @@ export default function Hero() {
         background: 'linear-gradient(to bottom, #C8202A, #FF4444, #C8202A)',
       }} />
 
-      <div className="section-container" style={{ position: 'relative', zIndex: 2, width: '100%', padding: '80px 24px' }}>
-        <div style={{ maxWidth: 720 }}>
+      <div className="section-container hero-content-wrap" style={{ position: 'relative', zIndex: 2, width: '100%', padding: '80px 24px' }}>
+        <div className="hero-content" style={{ maxWidth: 720 }}>
           {/* Top badge */}
-          <div style={{
+          <div className="hero-badge" style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: 8,
@@ -66,7 +66,7 @@ export default function Hero() {
           {/* Main Title */}
           <h1 style={{
             fontFamily: 'Oswald, sans-serif',
-            fontSize: 'clamp(42px, 7vw, 80px)',
+            fontSize: 'clamp(34px, 9vw, 80px)',
             fontWeight: 700,
             color: 'white',
             lineHeight: 1.05,
@@ -79,7 +79,7 @@ export default function Hero() {
           </h1>
           <h1 style={{
             fontFamily: 'Oswald, sans-serif',
-            fontSize: 'clamp(42px, 7vw, 80px)',
+            fontSize: 'clamp(34px, 9vw, 80px)',
             fontWeight: 700,
             color: '#C8202A',
             lineHeight: 1.05,
@@ -92,7 +92,7 @@ export default function Hero() {
           </h1>
           <h1 style={{
             fontFamily: 'Oswald, sans-serif',
-            fontSize: 'clamp(42px, 7vw, 80px)',
+            fontSize: 'clamp(34px, 9vw, 80px)',
             fontWeight: 700,
             color: 'white',
             lineHeight: 1.05,
@@ -118,14 +118,14 @@ export default function Hero() {
           </p>
 
           {/* CTAs */}
-          <div style={{
+          <div className="hero-cta-row" style={{
             display: 'flex',
             flexWrap: 'wrap',
             gap: 14,
             marginBottom: 40,
             animation: 'fadeInUp 0.7s 0.5s ease both',
           }}>
-            <a href="#contact" style={{
+            <a href="#contact" className="hero-primary-cta" style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: 10,
@@ -151,7 +151,7 @@ export default function Hero() {
             >
               📅 Schedule Free Estimate
             </a>
-            <a href="tel:3235557270" style={{
+            <a href="tel:3235557270" className="hero-secondary-cta" style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: 10,
@@ -179,7 +179,7 @@ export default function Hero() {
           </div>
 
           {/* Ratings + Trust badges */}
-          <div style={{
+          <div className="hero-trust-row" style={{
             display: 'flex',
             flexWrap: 'wrap',
             gap: 16,
@@ -255,6 +255,19 @@ export default function Hero() {
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(30px); }
           to   { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+          .hero-content-wrap { padding: 64px 16px !important; }
+          .hero-badge { margin-bottom: 18px !important; font-size: 12px !important; }
+          .hero-content p { margin-bottom: 26px !important; }
+          .hero-cta-row { gap: 10px !important; margin-bottom: 28px !important; }
+          .hero-primary-cta, .hero-secondary-cta {
+            width: 100%;
+            justify-content: center;
+            padding: 14px 16px !important;
+            font-size: 15px !important;
+          }
+          .hero-trust-row > div { width: 100%; }
         }
       `}</style>
     </section>

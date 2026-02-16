@@ -134,3 +134,15 @@ button {
   .mobile-nav { display: none !important; }
   .hamburger { display: none !important; }
 }
+
+
+@media (max-width: 768px) {
+  .section-container {
+    padding: 0 16px;
+  }
+
+  h1, h2, h3 {
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+}
